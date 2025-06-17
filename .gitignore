@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Optional: Build folders (if using TypeScript or bundlers)
+dist/
+build/
+
+# Optional: dotenv backups
+.env.*.local
+
+# Optional: Render deploy output (if manually created)
+render.yaml
+
+# Optional: local database data
+dump/

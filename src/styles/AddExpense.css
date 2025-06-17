@@ -1,0 +1,47 @@
+.add-expense-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #ebf4ff, #f3e8ff);
+}
+
+.add-expense-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.add-expense-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  padding: 0.5rem;
+  color: #4b5563;
+  border: none;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: #111827;
+  background-color: white;
+}
+
+.back-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.add-expense-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.add-expense-subtitle {
+  color: #4b5563;
+}
