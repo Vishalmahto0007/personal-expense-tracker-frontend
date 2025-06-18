@@ -14,12 +14,10 @@ import {
   createExpense,
   updateExpense,
   deleteExpense,
-  clearError,
   selectExpenses,
   selectIsLoading,
   selectError,
   selectTotal,
-  resetExpenses,
 } from "../store/slices/expenseSlice";
 
 const categories = [
@@ -82,15 +80,16 @@ const Expenses = () => {
     else setHasMore(true);
   };
 
+  // FIX: Do NOT resetExpenses here, just fetch new data
   useEffect(() => {
-    const resetAndFetch = async () => {
-      dispatch(resetExpenses());
+    const fetchOnFilterChange = async () => {
       setSkip(0);
       setHasMore(true);
       await loadExpenses(0);
     };
-    resetAndFetch();
-  }, [debouncedSearchTerm, selectedCategory, dispatch]);
+    fetchOnFilterChange();
+    // eslint-disable-next-line
+  }, [debouncedSearchTerm, selectedCategory]);
 
   const lastExpenseRef = useCallback(
     (node) => {
@@ -113,6 +112,7 @@ const Expenses = () => {
         loadingMore.current = false;
       });
     }
+    // eslint-disable-next-line
   }, [skip]);
 
   useEffect(() => {
