@@ -119,12 +119,12 @@ const Expenses = () => {
     if (error) toast.error(error);
   }, [error]);
 
+  // --- FIX: No resetExpenses here! ---
   const handleAddExpense = async (expenseData) => {
     try {
       await dispatch(createExpense(expenseData)).unwrap();
       toast.success("Expense added successfully!");
       setAddingExpense(false);
-      dispatch(resetExpenses());
       setSkip(0);
       setHasMore(true);
       await loadExpenses(0);
@@ -140,7 +140,6 @@ const Expenses = () => {
       ).unwrap();
       toast.success("Expense updated successfully!");
       setEditingExpense(null);
-      dispatch(resetExpenses());
       setSkip(0);
       setHasMore(true);
       await loadExpenses(0);
@@ -154,7 +153,6 @@ const Expenses = () => {
       await dispatch(deleteExpense(deleteExpenseId)).unwrap();
       toast.success("Expense deleted successfully!");
       setDeleteExpenseId(null);
-      dispatch(resetExpenses());
       setSkip(0);
       setHasMore(true);
       await loadExpenses(0);
