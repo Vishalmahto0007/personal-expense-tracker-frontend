@@ -282,18 +282,20 @@ const Expenses = () => {
 
         {expenses.length > 0 ? (
           <div className="expenses-grid">
-            {expenses.map((expense, idx) => (
-              <div
-                ref={idx === expenses.length - 1 ? lastExpenseRef : null}
-                key={expense._id}
-              >
-                <ExpenseCard
-                  expense={expense}
-                  onEdit={setEditingExpense}
-                  onDelete={setDeleteExpenseId}
-                />
-              </div>
-            ))}
+            {expenses.map((expense, idx) =>
+              expense?._id ? (
+                <div
+                  ref={idx === expenses.length - 1 ? lastExpenseRef : null}
+                  key={expense?._id}
+                >
+                  <ExpenseCard
+                    expense={expense}
+                    onEdit={setEditingExpense}
+                    onDelete={setDeleteExpenseId}
+                  />
+                </div>
+              ) : null
+            )}
           </div>
         ) : (
           <div className="empty-box">
